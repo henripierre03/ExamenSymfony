@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classe{% endblock %}
+{% block card_title %}Classes{% endblock %}
+
+{% block card_body %}
+         <div class="container-fluid">
+              
+                          <form class="form-inline "> 
+                              <div class="form-group w-100 ">
+                                  <label for="" class="col-sm-2">Libelle</label>
+                                  <input type="text" name="" id="" class="form-control col-sm-6  " placeholder="" aria-describedby="helpId">
+                                  <small id="helpId" class="text-muted ml-2 col-sm-2 text-danger"></small>
+                                  <button type="submit" class="btn btn-info"> <i class="fa fa-plus" aria-hidden="true"></i>  Enregistrer</button>
+                              </div>
+                          </form>
+                  <h3 class="card-title" >Liste des  Classes</h3><br>
+                     <table class="table table-bordered  w-100 mt-3">
+                         <thead >
+                             <tr>
+                                 <th class="w-25">ID</th>
+                                 <th class="w-50">Libelle</th>
+                                 <th class="w-25">Actions</th>
+                             </tr>
+                             </thead>
+                             <tbody>
+                             {% for classe in classes %}
+                                 <tr >
+                                     <td >{{classe.id}}</td>
+                                     <td>{{classe.libelle}}</td>
+                                     <td>
+                                      <a name="" id="" class="btn btn-warning btn-sm" href="{{path("classe_edit",{idClasse:classe.id})}}" role="button"><i class="fa fa-edit    "></i>  Modification</a>
+                                      <a name="" id="" class="btn btn-danger btn-sm" href="{{path("classe_delete",{id:classe.id})}}" role="button"><i class="fa fa-trash" aria-hidden="true"></i>  Suppression</a>
+                                     </td>
+                                 </tr>
+                             {% endfor %}
+                                
+                             </tbody>
+                     </table>
+
+                 
+                  
+
+         </div>          
+{% endblock %}
